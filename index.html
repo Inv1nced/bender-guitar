@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ed">
+  <meta name="description" content="Интерактивный гитарный урок по Bender: семь частей кавера Dave Shinoda, гриф, табы, метроном и синтетическая гитара.">
+  <title>Bender — урок для электрогитары</title>
+  <link rel="icon" type="image/png" href="pick.png">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#practice">К тренажёру</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a href="#top" class="wordmark" aria-label="Bender, в начало"><span class="pick" aria-hidden="true">B</span> Bender</a>
+      <nav aria-label="Разделы урока"><a href="#practice">Тренажёр</a><a href="#basics">Техника</a><a href="#source">Кавер</a></nav>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero shell" aria-labelledby="title">
+      <div class="hero-copy">
+        <p class="artist">The Paradox feat. Travis Barker</p>
+        <h1 id="title">BENDER</h1>
+        <p class="hero-text">Выучи гитарную партию по каверу Dave Shinoda. Слушай каждый удар, повторяй за подсветкой грифа и постепенно набирай скорость.</p>
+        <div class="hero-links"><a class="button primary" href="#practice">Начать с интро <span aria-hidden="true">↓</span></a><a class="text-link" href="#basics">Я впервые читаю табы</a></div>
+      </div>
+      <a class="hero-cover" href="https://www.youtube.com/watch?v=4pqW8o3jWDQ" target="_blank" rel="noopener">
+        <img src="https://i.ytimg.com/vi/4pqW8o3jWDQ/maxresdefault.jpg" width="1280" height="720" alt="" fetchpriority="high">
+        <span class="cover-caption"><span class="cover-play" aria-hidden="true">▶</span><span><strong>Кавер Dave Shinoda</strong><small>Смотреть на YouTube</small></span><span class="external" aria-hidden="true">↗</span></span>
+      </a>
+    </section>
+
+    <section id="practice" class="shell practice" aria-labelledby="practice-title">
+      <div class="section-head"><h2 id="practice-title">Тренажёр</h2><p>Стандартный строй <strong>E A D G B E</strong></p></div>
+      <div class="workspace">
+        <nav class="parts" aria-label="Части песни" id="parts"></nav>
+        <div class="lesson">
+          <div class="lesson-head">
+            <div><div class="lesson-meta" id="part-meta"></div><h3 id="part-title"></h3></div>
+            <a id="part-video" class="time-link" href="https://www.youtube.com/watch?v=4pqW8o3jWDQ" target="_blank" rel="noopener">Кавер <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="lead" id="part-lead"></p>
+          <div class="phrases" id="phrases" role="group" aria-label="Фрагмент для повторения"></div>
+          <div class="instrument">
+            <div class="instrument-top"><span id="position-name"></span><span id="technique" class="technique"></span></div>
+            <div class="neck" id="neck" role="img" aria-label="Позиция на грифе"></div>
+            <div class="instrument-foot"><span id="position-detail"></span><button type="button" id="hear" class="hear">Послушать удар</button></div>
+          </div>
+          <div class="transport">
+            <div class="transport-left">
+              <button type="button" id="play" class="button primary">▶ Играть</button>
+              <button type="button" id="reset" class="button outline" aria-label="С начала фрагмента" title="С начала фрагмента">↺</button>
+              <label class="toggle"><input id="loop" type="checkbox" checked> Повтор</label>
+            </div>
+            <div class="transport-right"><label class="tempo" for="speed">Темп <strong id="bpm"></strong></label><input id="speed" type="range" min="40" max="198" value="80" step="1"></div>
+          </div>
+          <div class="options">
+            <div class="presets" id="presets" role="group" aria-label="Быстрый выбор темпа"></div>
+            <label class="toggle"><input id="click" type="checkbox" checked> Метроном</label>
+            <label class="toggle"><input id="audio" type="checkbox" checked> Синтез гитары</label>
+          </div>
+          <p class="status" id="status" role="status" hidden></p>
+          <div class="tab-head"><h4>Табы фрагмента</h4><span id="progress"></span></div>
+          <div id="bars" class="bars"></div>
+          <p class="tab-hint">Выбирай удар нажатием или стрелками ← →. PM означает palm mute, точка — продолжение ноты без нового удара.</p>
+          <div class="coach">
+            <h4>Как сыграть</h4>
+            <ol id="steps"></ol>
+            <p class="focus-tip" id="part-tip"></p>
+            <div class="video-notes" id="video-notes" hidden></div>
+          </div>
+          <div class="lesson-footer"><button type="button" class="button outline" id="previous">← Предыдущая часть</button><button type="button" class="button outline" id="next">Следующая часть →</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell basics" id="basics" aria-labelledby="basics-title">
+      <div class="section-head"><h2 id="basics-title">Сначала поставь руки</h2></div>
+      <div class="basics-grid">
+        <article><h3>Настрой гитару</h3><p>От самой толстой струны к самой тонкой: <strong>6 E, 5 A, 4 D, 3 G, 2 B, 1 e</strong>. Нажми на струну, чтобы услышать эталон и сравнить с тюнером.</p><div class="tuner" id="tuner" role="group" aria-label="Звуки открытых струн"></div></article>
+        <article><h3>Читай табы сверху вниз</h3><p>Верхняя линия <strong>e</strong> — тонкая первая струна. Нижняя <strong>E</strong> — толстая шестая. <strong>0</strong> означает открытую струну. Цифры в одном столбце играй одним движением медиатора.</p><p>На грифе <strong>1</strong> — указательный, <strong>2</strong> — средний, <strong>3</strong> — безымянный, <strong>4</strong> — мизинец. Ставь палец рядом с металлическим порожком со стороны корпуса, оставляя небольшой зазор.</p></article>
+        <article><h3>Сделай palm mute</h3><p>Положи ребро ладони у бриджа, там, где заканчиваются струны. Ударь по толстой струне. Должна остаться различимая нота с коротким «чок».</p><p>Если выходит глухой щелчок, сдвинь ладонь ближе к бриджу. Для звучного акцента слегка приподними её и верни перед следующей одиночной нотой.</p></article>
+        <article><h3>Услышь восьмые</h3><p>Щелчок метронома отмечает <strong>1, 2, 3, 4</strong>. Между щелчками произноси «и». Играй на каждое <strong>«раз-и, два-и, три-и, четыре-и»</strong>. Начни с 60–80 ударов в минуту.</p><p><strong>h</strong> — ударь пальцем по следующему ладу без медиатора. <strong>p</strong> — слегка подцепи струну уходящим пальцем. <strong>×</strong> — приглушённый удар по струнам.</p></article>
+      </div>
+    </section>
+    <section class="shell source" id="source" aria-labelledby="source-title">
+      <div><h2 id="source-title">Сыграй вместе с кавером</h2><p>Синтез на сайте показывает высоту нот, акценты и учебный ритм. Для сравнения тембра, динамики и движений рук открой исполнение Dave Shinoda. Табы автора находятся в описании видео.</p></div>
+      <a class="button outline" href="https://www.youtube.com/watch?v=4pqW8o3jWDQ" target="_blank" rel="noopener">Открыть кавер ↗</a>
+    </section>
+  </main>
+  <footer class="shell site-footer"><span>Bender · урок для электрогитары</span><a href="#top">Наверх ↑</a></footer>
+  <noscript><p class="shell">Включи JavaScript, чтобы увидеть гриф, табы и запустить звук.</p></noscript>
+</body>
+</html>
